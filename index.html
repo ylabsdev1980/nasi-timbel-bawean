@@ -153,6 +153,12 @@ function order(menu, harga, qtyId) {
 <footer>
   <p>© 2026 Nasi Timbel Bawean • Crafted with Love</p>
 </footer>
-
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js");
+  });
+}
+</script>
 </body>
 </html>
