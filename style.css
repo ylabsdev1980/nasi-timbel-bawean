@@ -17,6 +17,10 @@ body {
   position: relative;
 }
 
+.business {
+  text-align: center;
+  padding: 40px 20px;
+}
 .overlay {
   background: rgba(0,0,0,0.6);
   padding: 40px;
