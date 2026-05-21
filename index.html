@@ -27,29 +27,62 @@
   <div class="grid">
 
     <div class="card">
-      <h3>Ayam Timbel Signature</h3>
-      <p>Ayam goreng rempah + sambal + lalapan segar</p>
+      <h3>Ayam Timbel</h3>
+      <p>Ayam goreng + sambal + lalapan</p>
       <span>Rp 25.000</span>
-      <a class="btn-small" href="https://wa.me/6280000000000?text=Saya%20pesan%20Ayam%20Timbel">Pesan</a>
+
+      <input type="number" id="qty1" placeholder="Jumlah" min="1">
+
+      <button class="btn-small"
+        onclick="order('Ayam Timbel','25000','qty1')">
+        Pesan Sekarang
+      </button>
     </div>
 
     <div class="card">
-      <h3>Ikan Bakar Special</h3>
-      <p>Ikan bakar madu + sambal khas Bawean</p>
+      <h3>Ikan Bakar</h3>
+      <p>Ikan bakar + sambal khas</p>
       <span>Rp 28.000</span>
-      <a class="btn-small" href="https://wa.me/6280000000000?text=Saya%20pesan%20Ikan%20Bakar">Pesan</a>
+
+      <input type="number" id="qty2" placeholder="Jumlah" min="1">
+
+      <button class="btn-small"
+        onclick="order('Ikan Bakar','28000','qty2')">
+        Pesan Sekarang
+      </button>
     </div>
 
     <div class="card">
       <h3>Komplit Premium</h3>
-      <p>Ayam + ikan + tahu tempe + sayur + sambal</p>
+      <p>Ayam + ikan + sayur lengkap</p>
       <span>Rp 35.000</span>
-      <a class="btn-small" href="https://wa.me/6280000000000?text=Saya%20pesan%20Komplit%20Premium">Pesan</a>
+
+      <input type="number" id="qty3" placeholder="Jumlah" min="1">
+
+      <button class="btn-small"
+        onclick="order('Komplit Premium','35000','qty3')">
+        Pesan Sekarang
+      </button>
     </div>
 
   </div>
 </section>
 
+<script>
+function order(menu, harga, qtyId) {
+  let qty = document.getElementById(qtyId).value;
+  if(!qty) {
+    alert("Masukkan jumlah dulu");
+    return;
+  }
+
+  let total = harga * qty;
+
+  let text = `Saya pesan ${menu}%0AJumlah: ${qty}%0AHarga: Rp${total}`;
+
+  window.open("https://wa.me/6280000000000?text=" + text, "_blank");
+}
+</script>
 <footer>
   <p>© 2026 Nasi Timbel Bawean • Crafted with Love</p>
 </footer>
