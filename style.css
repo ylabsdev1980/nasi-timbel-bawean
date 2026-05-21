@@ -98,3 +98,11 @@ footer {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+.info, .testimoni {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.testimoni .card {
+  font-style: italic;
+}
