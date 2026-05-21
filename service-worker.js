@@ -1,9 +1,9 @@
-const CACHE = "bawean-v2";
+onst CACHE = "bawean-v3";
 
-self.addEventListener("install", e => {
+self.addEventListener("install", () => {
   self.skipWaiting();
 });
 
-self.addEventListener("activate", e => {
+self.addEventListener("activate", () => {
   clients.claim();
 });
