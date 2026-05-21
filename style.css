@@ -106,3 +106,40 @@ footer {
 .testimoni .card {
   font-style: italic;
 }
+.card {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* BEST SELLER BADGE */
+.card::before {
+  content: "BEST SELLER";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: gold;
+  color: black;
+  font-size: 10px;
+  padding: 5px 8px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+/* SMOOTH BUTTON */
+.btn, .btn-small {
+  transition: 0.3s;
+}
+
+.btn:hover, .btn-small:hover {
+  transform: scale(1.05);
+}
+
+/* CLEAN SPACING FIX */
+section {
+  scroll-margin-top: 20px;
+}
