@@ -1,218 +1,217 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta name="description" content="Nasi Timbel Bawean - restoran Sunda premium, pesan cepat via WhatsApp">
-<meta name="keywords" content="nasi timbel, makanan sunda, restoran bawean, nasi timbel enak">
-<meta name="author" content="Nasi Timbel Bawean">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nasi Timbel Bawean | Restoran Sunda Premium</title>
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#2d6a4f">
+
+  <meta name="description" content="Nasi Timbel Bawean - restoran Sunda premium, pesan cepat via WhatsApp">
+  <meta name="theme-color" content="#2d6a4f">
+  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="style.css">
-<style>
-#splash{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:#38b000;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
-  transition:opacity .8s ease;
-}
 
-#splash img{
-  width:120px;
-  height:120px;
-  border-radius:25px;
-  animation:pulse 1.5s infinite;
-}
+  <style>
+    #splash{
+      position: fixed;
+      inset: 0;
+      background: #2d6a4f;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity .8s ease;
+    }
 
-#splash h1{
-  color:white;
-  margin-top:20px;
-  font-size:28px;
-}
+    #splash img{
+      width: 120px;
+      height: 120px;
+      border-radius: 24px;
+      animation: pulse 1.5s infinite;
+    }
 
-#splash p{
-  color:#eaffea;
-  font-size:14px;
-}
+    #splash h1{
+      color: white;
+      margin-top: 18px;
+      font-size: 26px;
+    }
 
-@keyframes pulse{
-  0%{transform:scale(1);}
-  50%{transform:scale(1.08);}
-  100%{transform:scale(1);}
-}
-</style>
+    #splash p{
+      color: #d8f3dc;
+      font-size: 14px;
+    }
+
+    @keyframes pulse{
+      0%{transform:scale(1);}
+      50%{transform:scale(1.08);}
+      100%{transform:scale(1);}
+    }
+  </style>
 </head>
+
 <body>
-<div id="splash">
-  <img src="icon-512.png" alt="Logo">
-  <h1>Nasi Timbel Bawean</h1>
-  <p>Premium Sunda Experience</p>
-</div>
-<header class="hero">
-  <div class="overlay">
-    <h1>🍽️ Nasi Timbel Bawean</h1>
-    <p>Rasa Sunda Autentik • Fresh • Premium • Bikin Nagih</p>
-    <a class="btn" href="https://wa.me/6280000000000">Pesan Sekarang</a>
-  </div>
-</header>
 
-<section class="about">
-  <h2>Tentang Kami</h2>
-  <p>Kami menyajikan makanan khas Sunda dengan bahan segar, rasa autentik, dan penyajian modern seperti restoran premium.</p>
-</section>
-
-<section class="menu">
-  <h2>Menu Favorit</h2>
-
-  <div class="grid">
-
-    <div class="card">
-      <h3>Ayam Timbel</h3>
-      <p>Ayam goreng + sambal + lalapan</p>
-      <span>Rp 25.000</span>
-
-      <input type="number" id="qty1" placeholder="Jumlah" min="1">
-
-      <button class="btn-small"
-        onclick="order('Ayam Timbel','25000','qty1')">
-        Pesan Sekarang
-      </button>
-    </div>
-
-    <div class="card">
-      <h3>Ikan Bakar</h3>
-      <p>Ikan bakar + sambal khas</p>
-      <span>Rp 28.000</span>
-
-      <input type="number" id="qty2" placeholder="Jumlah" min="1">
-
-      <button class="btn-small"
-        onclick="order('Ikan Bakar','28000','qty2')">
-        Pesan Sekarang
-      </button>
-    </div>
-
-    <div class="card">
-      <h3>Komplit Premium</h3>
-      <p>Ayam + ikan + sayur lengkap</p>
-      <span>Rp 35.000</span>
-
-      <input type="number" id="qty3" placeholder="Jumlah" min="1">
-
-      <button class="btn-small"
-        onclick="order('Komplit Premium','35000','qty3')">
-        Pesan Sekarang
-      </button>
-    </div>
-
-  </div>
-</section>
-
-<script>
-function order(menu, harga, qtyId) {
-  let qty = document.getElementById(qtyId).value;
-  if(!qty) {
-    alert("Masukkan jumlah dulu");
-    return;
-  }
-
-  let total = harga * qty;
-
-  let text = `Saya pesan ${menu}%0AJumlah: ${qty}%0AHarga: Rp${total}`;
-
-  window.open("https://wa.me/6280000000000?text=" + text, "_blank");
-}
-</script>
-<section class="info">
-
-  <h2>Lokasi Kami</h2>
-  <p>Kunjungi langsung atau pesan via WhatsApp</p>
-
-  <a class="btn"
-     href="https://www.google.com/maps"
-     target="_blank">
-     Lihat di Google Maps
-  </a>
-
-</section>
-
-<section class="testimoni">
-
-  <h2>Testimoni Pelanggan</h2>
-
-  <div class="grid">
-
-    <div class="card">
-      <p>"Rasanya enak banget, seperti masakan rumah!"</p>
-      <b>- Andi</b>
-    </div>
-
-    <div class="card">
-      <p>"Order cepat dan pelayanan ramah."</p>
-      <b>- Sari</b>
-    </div>
-
-    <div class="card">
-      <p>"Wajib coba ayam timbelnya!"</p>
-      <b>- Budi</b>
-    </div>
-
+  <!-- Splash Screen -->
+  <div id="splash">
+    <img src="icon-512.png" alt="Logo">
+    <h1>Nasi Timbel Bawean</h1>
+    <p>Premium Sunda Experience</p>
   </div>
 
-</section>
-
-<section class="business">
-
-  <h2>Kenapa Pilih Kami?</h2>
-
-  <div class="grid">
-
-    <div class="card">
-      <h3>🍃 Bahan Fresh</h3>
-      <p>Semua bahan dipilih setiap hari</p>
+  <!-- Hero -->
+  <header class="hero">
+    <div class="overlay">
+      <h1>🍽️ Nasi Timbel Bawean</h1>
+      <p>Rasa Sunda Autentik • Fresh • Premium</p>
+      <a class="btn" href="https://wa.me/6280000000000">Pesan Sekarang</a>
     </div>
+  </header>
 
-    <div class="card">
-      <h3>👨‍🍳 Masakan Asli</h3>
-      <p>Resep tradisional Sunda</p>
+  <!-- Tentang -->
+  <section class="about">
+    <h2>Tentang Kami</h2>
+    <p>
+      Menyajikan makanan khas Sunda dengan bahan segar,
+      cita rasa autentik, dan pelayanan cepat seperti restoran premium.
+    </p>
+  </section>
+
+  <!-- Menu -->
+  <section class="menu">
+    <h2>Menu Favorit</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Ayam Timbel</h3>
+        <p>Ayam goreng + sambal + lalapan</p>
+        <span>Rp 25.000</span><br><br>
+        <input type="number" id="qty1" min="1" placeholder="Jumlah">
+        <button class="btn-small"
+          onclick="order('Ayam Timbel',25000,'qty1')">
+          Pesan
+        </button>
+      </div>
+
+      <div class="card">
+        <h3>Ikan Bakar</h3>
+        <p>Ikan bakar + sambal khas</p>
+        <span>Rp 28.000</span><br><br>
+        <input type="number" id="qty2" min="1" placeholder="Jumlah">
+        <button class="btn-small"
+          onclick="order('Ikan Bakar',28000,'qty2')">
+          Pesan
+        </button>
+      </div>
+
+      <div class="card">
+        <h3>Komplit Premium</h3>
+        <p>Ayam + ikan + sayur lengkap</p>
+        <span>Rp 35.000</span><br><br>
+        <input type="number" id="qty3" min="1" placeholder="Jumlah">
+        <button class="btn-small"
+          onclick="order('Komplit Premium',35000,'qty3')">
+          Pesan
+        </button>
+      </div>
+
     </div>
+  </section>
 
-    <div class="card">
-      <h3>⚡ Order Cepat</h3>
-      <p>Langsung ke WhatsApp tanpa ribet</p>
+  <!-- Lokasi -->
+  <section class="info">
+    <h2>Lokasi Kami</h2>
+    <p>Kunjungi langsung atau pesan online via WhatsApp</p>
+    <a class="btn" href="https://www.google.com/maps" target="_blank">
+      Lihat Google Maps
+    </a>
+  </section>
+
+  <!-- Testimoni -->
+  <section class="testimoni">
+    <h2>Testimoni Pelanggan</h2>
+
+    <div class="grid">
+      <div class="card">
+        <p>"Rasanya autentik banget, favorit keluarga."</p>
+        <b>- Andi</b>
+      </div>
+
+      <div class="card">
+        <p>"Pelayanan cepat, order gampang."</p>
+        <b>- Sari</b>
+      </div>
+
+      <div class="card">
+        <p>"Ayam timbelnya juara!"</p>
+        <b>- Budi</b>
+      </div>
     </div>
+  </section>
 
-  </div>
+  <!-- Kelebihan -->
+  <section class="business">
+    <h2>Kenapa Pilih Kami?</h2>
 
-</section>
-<footer>
-  <p>© 2026 Nasi Timbel Bawean • Crafted with Love</p>
-</footer>
-<script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./service-worker.js");
-  });
-}
-</script>
-<script>
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    const splash = document.getElementById("splash");
-    splash.style.opacity = "0";
-    setTimeout(() => splash.remove(), 800);
-  }, 1800);
-});
-</script>
+    <div class="grid">
+      <div class="card">
+        <h3>🍃 Bahan Fresh</h3>
+        <p>Dipilih setiap hari</p>
+      </div>
+
+      <div class="card">
+        <h3>👨‍🍳 Rasa Asli Sunda</h3>
+        <p>Resep tradisional</p>
+      </div>
+
+      <div class="card">
+        <h3>⚡ Order Cepat</h3>
+        <p>Langsung ke WhatsApp</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Nasi Timbel Bawean • Premium</p>
+  </footer>
+
+  <script>
+    function order(menu, harga, qtyId) {
+      let qty = document.getElementById(qtyId).value;
+
+      if (!qty) {
+        alert("Masukkan jumlah dulu");
+        return;
+      }
+
+      let total = harga * qty;
+      let text =
+        "Saya pesan " + menu +
+        "%0AJumlah: " + qty +
+        "%0ATotal: Rp" + total;
+
+      window.open(
+        "https://wa.me/6280000000000?text=" + text,
+        "_blank"
+      );
+    }
+
+    // Splash auto hide
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        const splash = document.getElementById("splash");
+        splash.style.opacity = "0";
+        setTimeout(() => splash.remove(), 800);
+      }, 1800);
+    });
+
+    // Service Worker
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./service-worker.js");
+      });
+    }
+  </script>
 
 </body>
 </html>
