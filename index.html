@@ -86,57 +86,98 @@
   <script>
     let cart = [];
 
-    function addToCart(name, price){
-      cart.push({name, price});
-      renderCart();
-    }
+function addToCart(name, price){
+  let found = cart.find(item => item.name === name);
 
-    function renderCart(){
-      let list = document.getElementById("cart-list");
-      let total = 0;
+  if(found){
+    found.qty += 1;
+  } else {
+    cart.push({
+      name,
+      price,
+      qty: 1
+    });
+  }
 
-      list.innerHTML = "";
+  renderCart();
+}
 
-      cart.forEach((item, index) => {
-        total += item.price;
-        list.innerHTML += `
-          <div class="card">
-            ${item.name} - Rp ${item.price}
-          </div>
-        `;
-      });
+function increaseQty(index){
+  cart[index].qty += 1;
+  renderCart();
+}
 
-      document.getElementById("total").innerText =
-        "Total: Rp " + total;
-    }
+function decreaseQty(index){
+  cart[index].qty -= 1;
 
-    function checkout(){
-      if(cart.length === 0){
-        alert("Keranjang kosong");
-        return;
-      }
+  if(cart[index].qty <= 0){
+    cart.splice(index, 1);
+  }
 
-      let text = "Halo, saya mau pesan:%0A";
-      let total = 0;
+  renderCart();
+}
 
-      cart.forEach(item => {
-        text += "- " + item.name + " Rp " + item.price + "%0A";
-        total += item.price;
-      });
+function renderCart(){
+  let list = document.getElementById("cart-list");
+  let total = 0;
 
-      text += "%0ATotal: Rp " + total;
+  list.innerHTML = "";
 
-      window.open(
-        "https://wa.me/6280000000000?text=" + text,
-        "_blank"
-      );
-    }
+  cart.forEach((item, index) => {
+    let subtotal = item.price * item.qty;
+    total += subtotal;
 
-    function clearCart(){
-      cart = [];
-      renderCart();
-    }
+    list.innerHTML += `
+      <div class="card">
+        <h3>${item.name}</h3>
+        <p>Rp ${item.price} x ${item.qty}</p>
+        <strong>Subtotal: Rp ${subtotal}</strong><br><br>
 
+        <button class="btn-small"
+          onclick="decreaseQty(${index})">-</button>
+
+        <button class="btn-small"
+          onclick="increaseQty(${index})">+</button>
+      </div>
+    `;
+  });
+
+  document.getElementById("total").innerText =
+    "Total: Rp " + total;
+}
+
+function checkout(){
+  if(cart.length === 0){
+    alert("Keranjang kosong");
+    return;
+  }
+
+  let text = "Halo, saya mau pesan:%0A";
+  let total = 0;
+
+  cart.forEach(item => {
+    let subtotal = item.price * item.qty;
+
+    text +=
+      "- " + item.name +
+      " x" + item.qty +
+      " = Rp " + subtotal + "%0A";
+
+    total += subtotal;
+  });
+
+  text += "%0ATotal: Rp " + total;
+
+  window.open(
+    "https://wa.me/6280000000000?text=" + text,
+    "_blank"
+  );
+}
+
+function clearCart(){
+  cart = [];
+  renderCart();
+}
     // Splash
     window.addEventListener("load", () => {
       setTimeout(() => {
