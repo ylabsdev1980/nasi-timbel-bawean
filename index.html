@@ -3,55 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nasi Timbel Bawean | Restoran Sunda Premium</title>
-
-  <meta name="description" content="Nasi Timbel Bawean - restoran Sunda premium, pesan cepat via WhatsApp">
+  <title>Nasi Timbel Bawean | Premium</title>
   <meta name="theme-color" content="#2d6a4f">
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="style.css">
-
-  <style>
-    #splash{
-      position: fixed;
-      inset: 0;
-      background: #2d6a4f;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      transition: opacity .8s ease;
-    }
-
-    #splash img{
-      width: 120px;
-      height: 120px;
-      border-radius: 24px;
-      animation: pulse 1.5s infinite;
-    }
-
-    #splash h1{
-      color: white;
-      margin-top: 18px;
-      font-size: 26px;
-    }
-
-    #splash p{
-      color: #d8f3dc;
-      font-size: 14px;
-    }
-
-    @keyframes pulse{
-      0%{transform:scale(1);}
-      50%{transform:scale(1.08);}
-      100%{transform:scale(1);}
-    }
-  </style>
 </head>
-
 <body>
 
-  <!-- Splash Screen -->
+  <!-- Splash -->
   <div id="splash">
     <img src="icon-512.png" alt="Logo">
     <h1>Nasi Timbel Bawean</h1>
@@ -63,21 +22,12 @@
     <div class="overlay">
       <h1>🍽️ Nasi Timbel Bawean</h1>
       <p>Rasa Sunda Autentik • Fresh • Premium</p>
-      <a class="btn" href="https://wa.me/6280000000000">Pesan Sekarang</a>
+      <a class="btn" href="#menu">Lihat Menu</a>
     </div>
   </header>
 
-  <!-- Tentang -->
-  <section class="about">
-    <h2>Tentang Kami</h2>
-    <p>
-      Menyajikan makanan khas Sunda dengan bahan segar,
-      cita rasa autentik, dan pelayanan cepat seperti restoran premium.
-    </p>
-  </section>
-
   <!-- Menu -->
-  <section class="menu">
+  <section class="menu" id="menu">
     <h2>Menu Favorit</h2>
 
     <div class="grid">
@@ -85,90 +35,48 @@
       <div class="card">
         <h3>Ayam Timbel</h3>
         <p>Ayam goreng + sambal + lalapan</p>
-        <span>Rp 25.000</span><br><br>
-        <input type="number" id="qty1" min="1" placeholder="Jumlah">
-        <button class="btn-small"
-          onclick="order('Ayam Timbel',25000,'qty1')">
-          Pesan
+        <span>Rp 25.000</span>
+        <button class="btn-small" onclick="addToCart('Ayam Timbel',25000)">
+          Tambah
         </button>
       </div>
 
       <div class="card">
         <h3>Ikan Bakar</h3>
         <p>Ikan bakar + sambal khas</p>
-        <span>Rp 28.000</span><br><br>
-        <input type="number" id="qty2" min="1" placeholder="Jumlah">
-        <button class="btn-small"
-          onclick="order('Ikan Bakar',28000,'qty2')">
-          Pesan
+        <span>Rp 28.000</span>
+        <button class="btn-small" onclick="addToCart('Ikan Bakar',28000)">
+          Tambah
         </button>
       </div>
 
       <div class="card">
         <h3>Komplit Premium</h3>
         <p>Ayam + ikan + sayur lengkap</p>
-        <span>Rp 35.000</span><br><br>
-        <input type="number" id="qty3" min="1" placeholder="Jumlah">
-        <button class="btn-small"
-          onclick="order('Komplit Premium',35000,'qty3')">
-          Pesan
+        <span>Rp 35.000</span>
+        <button class="btn-small" onclick="addToCart('Komplit Premium',35000)">
+          Tambah
         </button>
       </div>
 
     </div>
   </section>
 
-  <!-- Lokasi -->
-  <section class="info">
-    <h2>Lokasi Kami</h2>
-    <p>Kunjungi langsung atau pesan online via WhatsApp</p>
-    <a class="btn" href="https://www.google.com/maps" target="_blank">
-      Lihat Google Maps
-    </a>
-  </section>
+  <!-- Cart -->
+  <section class="cart">
+    <h2>Keranjang Order</h2>
 
-  <!-- Testimoni -->
-  <section class="testimoni">
-    <h2>Testimoni Pelanggan</h2>
+    <div id="cart-list"></div>
 
-    <div class="grid">
-      <div class="card">
-        <p>"Rasanya autentik banget, favorit keluarga."</p>
-        <b>- Andi</b>
-      </div>
+    <h3 id="total">Total: Rp 0</h3>
 
-      <div class="card">
-        <p>"Pelayanan cepat, order gampang."</p>
-        <b>- Sari</b>
-      </div>
+    <button class="btn-small" onclick="checkout()">
+      Checkout WhatsApp
+    </button>
 
-      <div class="card">
-        <p>"Ayam timbelnya juara!"</p>
-        <b>- Budi</b>
-      </div>
-    </div>
-  </section>
-
-  <!-- Kelebihan -->
-  <section class="business">
-    <h2>Kenapa Pilih Kami?</h2>
-
-    <div class="grid">
-      <div class="card">
-        <h3>🍃 Bahan Fresh</h3>
-        <p>Dipilih setiap hari</p>
-      </div>
-
-      <div class="card">
-        <h3>👨‍🍳 Rasa Asli Sunda</h3>
-        <p>Resep tradisional</p>
-      </div>
-
-      <div class="card">
-        <h3>⚡ Order Cepat</h3>
-        <p>Langsung ke WhatsApp</p>
-      </div>
-    </div>
+    <button class="btn-small" onclick="clearCart()">
+      Reset Cart
+    </button>
   </section>
 
   <footer>
@@ -176,19 +84,47 @@
   </footer>
 
   <script>
-    function order(menu, harga, qtyId) {
-      let qty = document.getElementById(qtyId).value;
+    let cart = [];
 
-      if (!qty) {
-        alert("Masukkan jumlah dulu");
+    function addToCart(name, price){
+      cart.push({name, price});
+      renderCart();
+    }
+
+    function renderCart(){
+      let list = document.getElementById("cart-list");
+      let total = 0;
+
+      list.innerHTML = "";
+
+      cart.forEach((item, index) => {
+        total += item.price;
+        list.innerHTML += `
+          <div class="card">
+            ${item.name} - Rp ${item.price}
+          </div>
+        `;
+      });
+
+      document.getElementById("total").innerText =
+        "Total: Rp " + total;
+    }
+
+    function checkout(){
+      if(cart.length === 0){
+        alert("Keranjang kosong");
         return;
       }
 
-      let total = harga * qty;
-      let text =
-        "Saya pesan " + menu +
-        "%0AJumlah: " + qty +
-        "%0ATotal: Rp" + total;
+      let text = "Halo, saya mau pesan:%0A";
+      let total = 0;
+
+      cart.forEach(item => {
+        text += "- " + item.name + " Rp " + item.price + "%0A";
+        total += item.price;
+      });
+
+      text += "%0ATotal: Rp " + total;
 
       window.open(
         "https://wa.me/6280000000000?text=" + text,
@@ -196,7 +132,12 @@
       );
     }
 
-    // Splash auto hide
+    function clearCart(){
+      cart = [];
+      renderCart();
+    }
+
+    // Splash
     window.addEventListener("load", () => {
       setTimeout(() => {
         const splash = document.getElementById("splash");
