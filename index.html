@@ -63,9 +63,8 @@
   </section>
 
   <!-- Cart -->
-  <section class="cart">
-    <h2>Keranjang Order</h2>
-
+<section class="cart">
+  <h2>Keranjang Order <span id="cart-count">🛒 0</span></h2>
     <div id="cart-list"></div>
 
     <h3 id="total">Total: Rp 0</h3>
@@ -144,8 +143,17 @@ function renderCart(){
     `;
   });
 
-  document.getElementById("total").innerText =
-    "Total: Rp " + total;
+let totalItems = 0;
+
+cart.forEach(item => {
+  totalItems += item.qty;
+});
+
+document.getElementById("total").innerText =
+  "Total: Rp " + total;
+
+document.getElementById("cart-count").innerText =
+  "🛒 " + totalItems;
 }
 
 function checkout(){
