@@ -171,3 +171,17 @@ footer{
   font-size: 24px;
   color: #2d6a4f;
 }
+.qty-btn{
+  background:#2d6a4f;
+  color:#fff;
+  border:none;
+  padding:8px 14px;
+  margin:6px;
+  border-radius:8px;
+  font-size:20px;
+  cursor:pointer;
+}
+
+.qty-btn:hover{
+  transform:scale(1.05);
+}
