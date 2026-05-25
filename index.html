@@ -129,16 +129,18 @@ function renderCart(){
 
     list.innerHTML += `
       <div class="card">
-        <h3>${item.name}</h3>
-        <p>Rp ${item.price} x ${item.qty}</p>
-        <strong>Subtotal: Rp ${subtotal}</strong><br><br>
+  <h3>${item.name}</h3>
+  <p>Rp ${item.price} x ${item.qty}</p>
+  <strong>Subtotal: Rp ${subtotal}</strong>
 
-<button class="qty-btn"
-  onclick="decreaseQty(${index})">−</button>
-
-<button class="qty-btn"
-  onclick="increaseQty(${index})">+</button>
-      </div>
+  <div style="margin-top:12px;">
+    <button onclick="decreaseQty(${index})">−</button>
+    <span style="margin:0 12px; font-size:20px; font-weight:bold;">
+      ${item.qty}
+    </span>
+    <button onclick="increaseQty(${index})">+</button>
+  </div>
+</div>
     `;
   });
 
